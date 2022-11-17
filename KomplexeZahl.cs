@@ -10,7 +10,7 @@ namespace Uebung_Klassen_und_Methoden
     internal class KomplexeZahl
     {
         private double real;
-        public double imaginaer;
+        private double imaginaer;
 
         public KomplexeZahl(double real, double imaginaer)
         {
@@ -31,8 +31,8 @@ namespace Uebung_Klassen_und_Methoden
 
         public void Add(KomplexeZahl kz)
         {
-            this.real = this.real + kz.real;
-            this.imaginaer = this.imaginaer + kz.imaginaer;
+            real = real + kz.real;
+            imaginaer = imaginaer + kz.imaginaer;
         }
 
         public void Sub(KomplexeZahl kz)
