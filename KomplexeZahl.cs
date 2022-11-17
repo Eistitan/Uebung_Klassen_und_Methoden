@@ -18,7 +18,7 @@ namespace Uebung_Klassen_und_Methoden
             this.imaginaer = imaginaer;
         }
 
-        public KomplexeZahl(KomplexeZahl kz) //Inception Konstruktor
+        public KomplexeZahl(KomplexeZahl kz) //Inception Konstruktor. Erzeugt echte Kopie. Deep Copy
         {
             this.real = kz.real;
             this.imaginaer = kz.imaginaer;
@@ -34,11 +34,23 @@ namespace Uebung_Klassen_und_Methoden
             real = real + kz.real;
             imaginaer = imaginaer + kz.imaginaer;
         }
+        public static KomplexeZahl Add(KomplexeZahl kz1, KomplexeZahl kz2)
+        {
+            KomplexeZahl erg_kz = new KomplexeZahl(kz1);
+            erg_kz.Add(kz2);
+            return erg_kz;
+        }
 
         public void Sub(KomplexeZahl kz)
         {
             real = real - kz.real;
             imaginaer = imaginaer - kz.imaginaer;
+        }
+        public static KomplexeZahl Sub(KomplexeZahl kz1, KomplexeZahl kz2)
+        {
+            KomplexeZahl erg_kz = new KomplexeZahl(kz1);
+            erg_kz.Sub(kz2);
+            return erg_kz;
         }
 
         public void Mul(KomplexeZahl kz)
@@ -46,6 +58,13 @@ namespace Uebung_Klassen_und_Methoden
             real = real * kz.real;
             imaginaer = imaginaer * kz.imaginaer;
         }
+        public static KomplexeZahl Mul(KomplexeZahl kz1, KomplexeZahl kz2)
+        {
+            KomplexeZahl erg_kz = new KomplexeZahl(kz1);
+            erg_kz.Mul(kz2);
+            return erg_kz;
+        }
+
         public static KomplexeZahl Berechnung(string rechenart, KomplexeZahl kz1, KomplexeZahl kz2)
         {
             KomplexeZahl erg_kz = new KomplexeZahl(kz1);
@@ -54,14 +73,17 @@ namespace Uebung_Klassen_und_Methoden
                 case "+":
                     erg_kz.Add(kz2);
                     break;
+
                     case "-":
                     erg_kz.Sub(kz2);
                     break;
+
                 case "*":
                     erg_kz.Mul(kz2);
                     break;
+
                 default:
-                    Console.WriteLine("Fehler");
+                    Console.WriteLine("Fehler"); //kz1 wird ausgegeben
                     break;
             }
             return erg_kz;
